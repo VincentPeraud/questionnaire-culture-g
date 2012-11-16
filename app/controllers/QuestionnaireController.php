@@ -31,7 +31,7 @@ class QuestionnaireController extends Controller
 		$reponses      = $reponseMapper->findAllByUser($user);
 
 		for ($i = 0 ; $i <= 6 ; ++$i)
-			$reponse[$i] = "";		
+			$this->vars['reponses'][$i] = "";		
 		foreach ($reponses as $reponse)
 		{
 			$numero  = $reponse->getQuestion()->getNumero();
