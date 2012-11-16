@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-class User
+class User extends Model
 {
 	private $id;
 	private $login;
 	private $datetime;
 	private $admin; //bool
 
-	public function __construct($login, $admin = false, $datetime = null)
+	public function init($login, $admin = false)
 	{
-		$this->login    = $login;
-		$this->admin    = $admin;
-		$this->datetime = $datetime;
+		$this->login = $login;
+		$this->admin = $admin;
 	}
 
 	public function getId()
@@ -49,6 +48,11 @@ class User
 	public function setAdmin($admin)
 	{
 		$this->admin = $admin;
+	}
+
+	public function getAdmin()
+	{
+		return $this->admin;
 	}
 
 	public function isAdmin()

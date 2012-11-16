@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
-use App\Model\Question;
-use App\Model\Student;
+use App\Models\Question;
+use App\Models\User;
 
-class Reponse
+class Reponse extends Model
 {
-	private $id;
-	private $question;
-	private $student;
-	private $content;
+	protected $id;
+	protected $question;
+	protected $user;
+	protected $content;
 
-	public function __construct($student, $question, $content)
+	public function init($user, $question, $content)
 	{
-		$this->student  = $student;
+		$this->user     = $user;
 		$this->question = $question;
 		$this->content  = $content;
 	}
@@ -39,14 +39,14 @@ class Reponse
 		$this->question = $question;
 	}
 
-	public function getStudent()
+	public function getUser()
 	{
-		return $this->student;
+		return $this->user;
 	}
 
-	public function setStudent(Student $student)
+	public function setUser(User $user)
 	{
-		$this->student = $student;
+		$this->user = $user;
 	}
 
 	public function getContent()

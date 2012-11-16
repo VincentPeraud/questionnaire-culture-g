@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
-class Question
+class Question extends Model
 {
 	private $id;
+	private $numero;
 	private $intitule;
 
-	public function __construct($intitule)
+	public function init($numero, $intitule)
 	{
+		$this->numero   = $numero;
 		$this->intitule = $intitule;
 	}
 
@@ -30,5 +32,15 @@ class Question
 	public function setIntitule($intitule)
 	{
 		$this->intitule = $intitule;
+	}
+
+	public function getNumero()
+	{
+		return $this->numero;
+	}
+
+	public function setNumero($numero)
+	{
+		$this->numero = $numero;
 	}
 }

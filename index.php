@@ -4,7 +4,7 @@ spl_autoload_register();
 
 $controller_namespace = "App\Controllers\\";
 
-$controller = "questionnaireController";
+$controller = "QuestionnaireController";
 $action = "indexAction";
 
 if (isset($_GET['controller']))
