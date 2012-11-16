@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule ^/?$  index.php?controller=questionnaire&action=index [L]
+RewriteRule ^([a-z]+)/?$  index.php?controller=$1&action=index [L]
+RewriteRule ^([a-z]+)/([a-z]+)/?$  index.php?controller=$1&action=$2 [L]
