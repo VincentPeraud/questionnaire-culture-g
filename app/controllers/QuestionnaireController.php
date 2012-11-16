@@ -11,6 +11,8 @@ use App\Mappers\ReponseMapper;
 use App\Models\Question;
 use App\Mappers\QuestionMapper;
 
+use \DateTime;
+
 class QuestionnaireController extends Controller
 {
 	private $vars;
@@ -69,6 +71,8 @@ class QuestionnaireController extends Controller
 				return;
 			$reponse->setContent($content);
 			$reponseMapper->save($reponse);
+			$user->setDatetime(new DateTime);
+			$userMapper->save($user);
 		}
 		$this->redirect($this->generateUrl("questionnaire", "confirmation"));
 	}

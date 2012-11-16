@@ -24,7 +24,7 @@
 		<label for="question3">Quelle note donneriez-vous à ces cours de culture générale ?</label>
 		<?php for ($i = 0 ; $i <= 10 ; ++$i) : ?>
 			<label class="radio inline" for="question3_<?php echo $i; ?>">
-				<input type="radio" name="question3" id="question3_<?php echo $i; ?>" value="<?php echo $i; ?>" <?php if ($reponses[3] == $i) echo "checked";?> /> <?php echo $i; ?>
+				<input type="radio" name="question3" id="question3_<?php echo $i; ?>" value="<?php echo $i; ?>" <?php if ($reponses[3] != "" && $reponses[3] == $i) echo "checked";?> /> <?php echo $i; ?>
 			</label>
 		<?php endfor; ?>
 	</div>

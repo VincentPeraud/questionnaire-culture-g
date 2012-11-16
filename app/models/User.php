@@ -37,7 +37,7 @@ class User extends Model
 
 	public function getDatetime()
 	{
-		return $this->datetime;
+		return $this->datetime->format('Y-m-d H:i:s');
 	}
 
 	public function setDatetime($datetime)
