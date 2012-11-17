@@ -8,7 +8,9 @@ class IonisUser
 	{
 		$c = curl_init();
 
-		$url = "https://return.epitech.eu/ws/INI/?action=login&auth_login=" . $login . "&auth_password=" . $pwd;
+		$service = "https://return.epitech.eu/ws/";
+
+		$url = $service . "INI/?action=login&auth_login=" . $login . "&auth_password=" . urlencode($pwd);
 
 		curl_setopt($c, CURLOPT_HTTPGET, true);
 		curl_setopt($c, CURLOPT_URL, $url);
