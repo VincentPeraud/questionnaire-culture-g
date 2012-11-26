@@ -34,7 +34,7 @@ class QuestionnaireController extends Controller
 		foreach ($reponses as $reponse)
 		{
 			$numero  = $reponse->getQuestion()->getNumero();
-			$content = html_entity_decode($reponse->getContent());
+			$content = utf8_decode($reponse->getContent());
 			$this->vars['reponses'][$numero] = $content;
 		}
 
@@ -59,7 +59,7 @@ class QuestionnaireController extends Controller
 			$reponse = new Reponse;
 			$reponse->setQuestion($questionMapper->findByNumero($i));
 			$reponse->setUser($user);
-			$content = htmlspecialchars(htmlentities($_POST['question' . $i]));
+			$content = utf8_encode(htmlspecialchars($_POST['question' . $i]));
 			if ($i == 1 && $content != "oui" && $content != "non")
 				return;
 			else if ($i == 3 && !($content >= 0 && $content <= 10))

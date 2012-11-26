@@ -61,6 +61,6 @@ class Reponse extends Model
 
 	public function __toString()
 	{
-		return nl2br(utf8_decode(html_entity_decode($this->content)));
+		return nl2br(utf8_decode($this->content));
 	}
 }
