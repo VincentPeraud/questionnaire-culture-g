@@ -25,7 +25,7 @@ class LoginController extends Controller
 			if (IonisUser::checkAuth($login, $pwd) && $userMapper->findByLogin($login))
 			{
 				$_SESSION['login'] = $login;
-				$this->redirect($this->generateUrl("questionnaire"));
+				$this->redirect($this->generateUrl("results"));
 			}
 			else
 				$this->vars['auth_failed'] = true;
