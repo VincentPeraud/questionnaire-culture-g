@@ -7,15 +7,10 @@ use App\Mappers\UserMapper;
 
 class LoginController extends Controller
 {
-	private $vars;
-
 	public function __construct()
 	{
 		$this->controller = "login";
-
 		parent::__construct();
-
-		$this->vars       = array();
 	}
 	public function indexAction()
 	{

@@ -4,14 +4,14 @@
 		<base href="<?php echo $this->base_url; ?>">
 		<title><?php echo $this->title; ?></title>
 		<meta name="author" content="peraud_v" />
-		<meta charset="utf-8" />
+		<meta charset="UTF-8" />
 
 		<link rel="stylesheet" type="text/css" media="all" href="libs/bootstrap/css/bootstrap.css" />
-		<link rel="stylesheet" href="libs/blueprint/grid.css" type="text/css" />
 		<link rel="stylesheet" type="text/css" media="all" href="media/css/style.css" />
 		<?php if ($this->controller == "login") : ?>
 			<link rel="stylesheet" type="text/css" media="all" href="media/css/login.css" />
 		<?php endif; ?>
+		<link rel="stylesheet" href="libs/blueprint/grid.css" type="text/css" />
 
 		<script type="text/javascript" src="libs/jQuery.js"></script>
 		<script type="text/javascript" src="libs/bootstrap/js/bootstrap.js"></script>

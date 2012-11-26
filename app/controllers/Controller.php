@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Mappers\UserMapper;
+
 use \ReflectionClass;
 use App\Utils\Conf;
 
@@ -15,6 +17,8 @@ class Controller
 	protected $controller;
 	protected $title;
 
+	protected $vars;
+
 	public function __construct()
 	{
 		$this->base_url    = Conf::BASE_URL;
@@ -22,10 +26,17 @@ class Controller
 		$this->view_path   = Conf::VIEW_PATH;
 		$this->layout_name = Conf::LAYOUT_NAME;
 		$this->layout      = true;
+		$this->vars        = array();
 
 		session_start();
 		if (!isset($_SESSION['login']) && $this->controller != "login")
 			$this->redirect($this->generateUrl("login"));
+
+		if ($this->controller != "login")
+		{
+			$userMapper = new UserMapper;
+			$this->vars['user'] = $userMapper->findByLogin($_SESSION['login']);
+		}
 	}
 
 	public function render($view, $vars = array())

@@ -15,13 +15,10 @@ use \DateTime;
 
 class QuestionnaireController extends Controller
 {
-	private $vars;
-
 	public function __construct()
 	{
 		parent::__construct();
 		$this->controller = "questionnaire";
-		$this->vars       = array();
 	}
 
 	public function indexAction()

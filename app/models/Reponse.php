@@ -58,4 +58,9 @@ class Reponse extends Model
 	{
 		$this->content = $content;
 	}
+
+	public function __toString()
+	{
+		return nl2br(utf8_decode(html_entity_decode($this->content)));
+	}
 }
