@@ -8,6 +8,9 @@
 
 <br>
 
+<div class="hide" id="oui"><?php echo $q1["oui"];?></div>
+<div class="hide" id="non"><?php echo $q1["non"];?></div>
+
 <div class="box span-12">
 	<div class="box-header">
 		<h2>
@@ -17,7 +20,7 @@
 		</h2>
 	</div>
 	<div class="box-content">
-		<span id="chart_oui_non"></span>
+		<div id="chart_oui_non"></div>
 	</div>
 </div>
 <div class="box span-12 last">
@@ -29,7 +32,7 @@
 		</h2>
 	</div>
 	<div class="box-content">
-		<div id="chart_oui_non"></div>
+		<p class="lead">Moyenne : <?php echo $moy; ?></p>
 	</div>
 </div>
 <div class="clear"></div>
@@ -47,7 +50,9 @@
 			<?php if ($reponse->getQuestion()->getNumero() == 2 && $reponse != "") : ?>
 				<blockquote>
 					<p><?php echo $reponse; ?></p>
-					<small><?php echo $reponse->getUser()->getLogin() ?></small>
+					<?php if ($user->isAdmin()) : ?>
+						<small><?php echo $reponse->getUser()->getLogin() ?></small>
+					<?php endif; ?>
 				</blockquote>
 			<?php endif; ?>
 		<?php endforeach; ?>
@@ -67,7 +72,9 @@
 			<?php if ($reponse->getQuestion()->getNumero() == 4 && $reponse != "") : ?>
 				<blockquote>
 					<p><?php echo $reponse; ?></p>
-					<small><?php echo $reponse->getUser()->getLogin() ?></small>
+					<?php if ($user->isAdmin()) : ?>
+						<small><?php echo $reponse->getUser()->getLogin() ?></small>
+					<?php endif; ?>
 				</blockquote>
 			<?php endif; ?>
 		<?php endforeach; ?>
@@ -87,7 +94,9 @@
 			<?php if ($reponse->getQuestion()->getNumero() == 5 && $reponse != "") : ?>
 				<blockquote>
 					<p><?php echo $reponse; ?></p>
-					<small><?php echo $reponse->getUser()->getLogin() ?></small>
+					<?php if ($user->isAdmin()) : ?>
+						<small><?php echo $reponse->getUser()->getLogin() ?></small>
+					<?php endif; ?>
 				</blockquote>
 			<?php endif; ?>
 		<?php endforeach; ?>
@@ -107,7 +116,9 @@
 			<?php if ($reponse->getQuestion()->getNumero() == 6 && $reponse != "") : ?>
 				<blockquote>
 					<p><?php echo $reponse; ?></p>
-					<small><?php echo $reponse->getUser()->getLogin() ?></small>
+					<?php if ($user->isAdmin()) : ?>
+						<small><?php echo $reponse->getUser()->getLogin() ?></small>
+					<?php endif; ?>
 				</blockquote>
 			<?php endif; ?>
 		<?php endforeach; ?>

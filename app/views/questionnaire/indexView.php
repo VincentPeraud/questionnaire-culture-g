@@ -1,6 +1,11 @@
 <script type="text/javascript" src="media/js/questionnaire.js"></script>
 
-<h1>Questionnaire</h1>
+<h1 class="span-19">Questionnaire</h1>
+<?php if ($user->isAdmin()) : ?>
+	<a class="btn span-4" href="<?php echo $this->generateUrl("results"); ?>"><i class="icon-eye-open"></i>&nbsp;&nbsp;Voir les résultats</a>
+<?php endif; ?>
+<div class="clear"></div>
+
 
 <p class="lead">Merci de répondre à ce questionnaire concernant le module et les cours de culture générale</p>
 

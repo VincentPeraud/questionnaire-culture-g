@@ -19,6 +19,10 @@ class QuestionnaireController extends Controller
 	{
 		parent::__construct();
 		$this->controller = "questionnaire";
+		$userMapper = new UserMapper;
+		$login = $_SESSION['login'];
+		$user = $userMapper->findByLogin($login);
+		$this->vars['user'] = $user;
 	}
 
 	public function indexAction()

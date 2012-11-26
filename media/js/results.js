@@ -1,6 +1,21 @@
 var chart;
+var chart2
 $(document).ready(function()
 {
+    var oui = parseInt($('#oui').text());
+    var non = parseInt($('#non').text());
+    // var note_0 = parseInt($('#note_0').text());
+    // var note_1 = parseInt($('#note_1').text());
+    // var note_2 = parseInt($('#note_2').text());
+    // var note_3 = parseInt($('#note_3').text());
+    // var note_4 = parseInt($('#note_4').text());
+    // var note_5 = parseInt($('#note_5').text());
+    // var note_6 = parseInt($('#note_6').text());
+    // var note_7 = parseInt($('#note_7').text());
+    // var note_8 = parseInt($('#note_8').text());
+    // var note_9 = parseInt($('#note_9').text());
+    // var note_10 = parseInt($('#note_10').text());
+
     chart = new Highcharts.Chart(
     {
         chart:
@@ -17,7 +32,7 @@ $(document).ready(function()
         },
         tooltip:
         {
-           pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+           pointFormat: '<b>{point.percentage}%</b>',
            percentageDecimals: 1
        },
        plotOptions:
@@ -33,7 +48,7 @@ $(document).ready(function()
                     connectorColor: '#000000',
                     formatter: function()
                     {
-                        return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                        return '<b>'+ this.point.name +'</b>: '+ Math.round(this.percentage*10)/10 +' %';
                     }
                 }
             }
@@ -42,9 +57,11 @@ $(document).ready(function()
         {
             type: 'pie',
             data: [
-            ['Oui',   60],
-            ['Non',   40],
+            ['Oui',   oui],
+            ['Non',   non],
             ]
         }]
-    });
+    });   
 });
+
+  
