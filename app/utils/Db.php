@@ -33,6 +33,7 @@ class Db
 	{
 		$this->query          = $this->pdo->query($query);
 		$this->prepared_query = NULL;
+		return $this->query;
 	}
 
 	public function prepare($query)

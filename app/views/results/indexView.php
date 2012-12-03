@@ -35,6 +35,19 @@
 		<p class="lead">Moyenne : <?php echo $moy; ?></p>
 	</div>
 </div>
+<div class="box span-12 last">
+	<div class="box-header">
+		<h2>
+			<i class="icon-signal"></i>
+			<span class="break"></span>
+			Participation
+		</h2>
+	</div>
+	<div class="box-content">
+		<p class="lead"><?php echo $answer . "/" . $total . " (" . $participation . " %)";?></p>
+	</div>
+</div>
+
 <div class="clear"></div>
 
 <div class="box span-24 last">

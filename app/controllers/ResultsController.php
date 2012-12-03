@@ -24,9 +24,8 @@ class ResultsController extends Controller
 	public function indexAction()
 	{
 		$reponseMapper = new ReponseMapper;
-
-
-		$reponses = $reponseMapper->fetchAll();
+		$userMapper    = new UserMapper;
+		$reponses      = $reponseMapper->fetchAll();
 
 		$q1["oui"] = 0;
 		$q1["non"] = 0;
@@ -50,10 +49,13 @@ class ResultsController extends Controller
 		$moy /= $sum;
 		$moy = round($moy, 2);
 
-		$this->vars['reponses'] = $reponses;
-		$this->vars['moy'] = $moy;
-		$this->vars['note'] = $note;
-		$this->vars['q1'] = $q1;
+		$this->vars['reponses']      = $reponses;
+		$this->vars['moy']           = $moy;
+		$this->vars['note']          = $note;
+		$this->vars['q1']            = $q1;
+		$this->vars['answer']        = $userMapper->getNbAnswer();
+		$this->vars['total']         = $userMapper->getNbNotAnswer() + $this->vars['answer'];
+		$this->vars['participation'] = round($this->vars['answer'] / $this->vars['total'] * 100, 2);
 		$this->render("index", $this->vars);
 	}
 }
